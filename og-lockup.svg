@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Hoshi AI Music">
+  <rect width="1200" height="630" fill="#07090f"/>
+  <circle cx="980" cy="120" r="160" fill="#e7dcc8" opacity="0.06"/>
+  <rect x="48" y="48" width="1104" height="534" fill="none" stroke="#c4a46a" stroke-opacity="0.28" stroke-width="1"/>
+  <rect x="56" y="56" width="1088" height="518" fill="none" stroke="#c4a46a" stroke-opacity="0.12" stroke-width="1"/>
+  <circle cx="600" cy="168" r="28" fill="none" stroke="#c4a46a" stroke-width="1" stroke-opacity="0.7"/>
+  <text x="600" y="178" text-anchor="middle" font-family="Times New Roman, serif" font-size="26" fill="#c4a46a">星</text>
+  <text x="600" y="248" text-anchor="middle" font-family="Helvetica Neue, Helvetica, sans-serif" font-size="18" letter-spacing="14" fill="#e7dcc8">HOSHI AI MUSIC</text>
+  <text x="600" y="360" text-anchor="middle" font-family="Times New Roman, serif" font-size="42" fill="#e7dcc8">「懐かしいアニソンを、新しい形でもう一度」</text>
+  <line x1="420" y1="430" x2="780" y2="430" stroke="#c4a46a" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="600" y="490" text-anchor="middle" font-family="Helvetica Neue, Helvetica, sans-serif" font-size="14" letter-spacing="6" fill="#8a7f6e">BELOVED ANISONG, HEARD ONCE MORE IN A NEW FORM</text>
+</svg>

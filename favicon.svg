@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="星">
+  <rect width="64" height="64" fill="#07090f"/>
+  <circle cx="32" cy="32" r="23" fill="none" stroke="#c4a46a" stroke-width="1" opacity="0.7"/>
+  <text x="32" y="41" text-anchor="middle" font-family="Times New Roman, Hiragino Mincho ProN, serif" font-size="26" fill="#c4a46a">星</text>
+</svg>
