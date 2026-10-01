@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="星">
-  <rect width="64" height="64" fill="#07090f"/>
-  <circle cx="32" cy="32" r="23" fill="none" stroke="#c4a46a" stroke-width="1" opacity="0.7"/>
-  <text x="32" y="41" text-anchor="middle" font-family="Times New Roman, Hiragino Mincho ProN, serif" font-size="26" fill="#c4a46a">星</text>
+  <rect width="64" height="64" rx="14" fill="#ff8a1f"/>
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#fff3df" stroke-width="4"/>
+  <polygon points="32,13 37.4,25.6 51,26.8 40.6,35.8 43.8,49 32,42 20.2,49 23.4,35.8 13,26.8 26.6,25.6" fill="#ffd23f" stroke="#1b1f4e" stroke-width="3" stroke-linejoin="round"/>
 </svg>
