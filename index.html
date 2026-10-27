@@ -1,108 +1,312 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#ff8a1f" />
-    <title>星 · Hoshi AI Music</title>
-    <meta name="description" content="Hoshi AI Music — 「懐かしいアニソンを、新しい形でもう一度」原創キャラクター Hoshi と届ける AI カバー MV。" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="星 · Hoshi AI Music" />
-    <meta property="og:description" content="「懐かしいアニソンを、新しい形でもう一度」" />
-    <meta property="og:image" content="/og.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="星 · Hoshi AI Music" />
-    <meta name="twitter:description" content="「懐かしいアニソンを、新しい形でもう一度」" />
-    <meta name="twitter:image" content="/og.jpg" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.bunny.net" />
-    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=zen-maru-gothic:500,700,900|poppins:800i&display=swap" />
-    <link rel="stylesheet" href="/assets/style.css" />
-    <script src="/assets/main.js" defer></script>
-  </head>
-  <body>
-    <a class="skip" href="#main">本文へスキップ</a>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0b0a1f" />
+<title>Hoshi AI Music ｜ hoshi dreams</title>
+<meta name="description" content="懐かしいアニソンを、新しい声でもう一度。AIカバーMVの「Hoshi AI Music」と、眠れない夜のためのアニメ睡眠BGM「hoshi dreams」。" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Hoshi AI Music ｜ hoshi dreams" />
+<meta property="og:description" content="懐かしいアニソンを、新しい声でもう一度。" />
+<meta property="og:image" content="/assets/img/hero_kikyo.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.bunny.net" />
+<link rel="stylesheet" href="https://fonts.bunny.net/css?family=zen-maru-gothic:500,700,900|shippori-mincho:600,800&display=swap" />
+<style>
+  :root{
+    --night:#0b0a1f; --night2:#141238; --ink:#f4f1ff; --mute:#a9a6c9; --line:rgba(255,255,255,.12);
+    --orange:#ff8a3d; --pink:#ff7fb6; --teal:#5ee0d0; --violet:#9b8cff;
+    --r:18px; --maxw:1120px;
+    --sans:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif; --serif:"Shippori Mincho","Hiragino Mincho ProN",serif;
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:var(--night);color:var(--ink);font-family:var(--sans);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit} img{display:block;max-width:100%}
+  .skip{position:absolute;left:-999px} .skip:focus{left:16px;top:16px;z-index:99;background:#fff;color:#000;padding:8px 12px;border-radius:8px}
+  .wrap{width:min(var(--maxw),100% - 32px);margin:0 auto}
+  /* ---- 顶部导航 ---- */
+  .nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:14px max(16px,calc(50vw - var(--maxw)/2));background:linear-gradient(rgba(11,10,31,.85),rgba(11,10,31,0));backdrop-filter:blur(6px)}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:900;letter-spacing:.04em;text-decoration:none}
+  .logo svg{width:22px;height:22px}
+  .nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--mute)}
+  .nav a{text-decoration:none} .nav ul a:hover{color:var(--ink)}
+  /* ---- 首屏 ---- */
+  .hero{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden}
+  .hero{background:radial-gradient(70% 70% at 78% 40%,rgba(155,140,255,.28),rgba(11,10,31,0) 70%),radial-gradient(50% 50% at 20% 90%,rgba(255,127,182,.14),rgba(11,10,31,0) 70%),var(--night)}
+  .hero .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center;padding:110px 0 90px!important}
+  .hero .art{position:relative;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 80px rgba(155,140,255,.25)}
+  .hero .art img{width:100%;height:auto}
+  .hero .art figcaption{padding:12px 18px 14px;background:rgba(8,7,24,.9);font-size:14px;color:var(--mute)}
+  .hero .art figcaption b{color:var(--ink);font-size:16px;margin-right:8px}
+  .hero .art .now{position:absolute;right:14px;top:14px;font-size:12px;font-weight:700;letter-spacing:.1em;background:#ff2d46;padding:3px 12px;border-radius:999px}
+  #stars{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+  .hero .wrap{position:relative;z-index:2}
+  .kicker{font-size:14px;letter-spacing:.3em;color:var(--teal)}
+  .hero h1{word-break:keep-all;font-family:var(--serif);font-weight:800;font-size:clamp(32px,4.4vw,66px);line-height:1.2;margin:.2em 0 .3em;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--pink),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{max-width:30em;color:#dcd8f5;font-size:clamp(15px,1.6vw,18px)}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
+  .btn:hover{transform:translateY(-2px)} .btn:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+  .btn.red{background:#ff2d46;box-shadow:0 8px 24px rgba(255,45,70,.35)} .btn.red:hover{box-shadow:0 12px 30px rgba(255,45,70,.5)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.06)} .btn.ghost:hover{background:rgba(255,255,255,.14)}
+  .scroll{position:absolute;z-index:2;left:50%;bottom:22px;transform:translateX(-50%);font-size:12px;letter-spacing:.3em;color:var(--mute)}
+  /* ---- 通用区块 ---- */
+  section{padding:110px 0}
+  .eyebrow{font-size:13px;letter-spacing:.3em;color:var(--teal);margin:0}
+  h2{font-family:var(--serif);font-weight:800;font-size:clamp(28px,3.6vw,44px);line-height:1.35;margin:.25em 0 .6em}
+  .sub{color:var(--mute);max-width:40em;margin:0 0 36px}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* ---- 两个频道 ---- */
+  .twin{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .ch{position:relative;border-radius:24px;padding:34px 96px 30px 30px;overflow:hidden;border:1px solid var(--line);min-height:300px;display:flex;flex-direction:column}
+  .ch.main{background:radial-gradient(120% 90% at 100% 0%,rgba(255,138,61,.35),rgba(255,127,182,.12) 45%,rgba(20,18,56,.9) 75%)}
+  .ch.dream{background:radial-gradient(120% 90% at 100% 0%,rgba(155,140,255,.4),rgba(94,224,208,.1) 45%,rgba(14,13,40,.95) 75%)}
+  .ch h3{font-size:26px;margin:6px 0 8px;font-weight:900;letter-spacing:.02em}
+  .ch .tag{display:inline-block;font-size:12px;padding:3px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:#e7e3ff}
+  .ch p{color:#d6d2ef;margin:0 0 22px;flex:1}
+  .ch .moon{position:absolute;right:26px;top:22px;width:54px;height:54px;border-radius:50%;box-shadow:inset -14px -6px 0 0 #f7f1d7;transform:rotate(-20deg);opacity:.9}
+  .ch .spark{position:absolute;right:30px;top:26px;width:46px;height:46px;color:#ffd7a8}
+  /* ---- 作品 ---- */
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .card{display:block;text-decoration:none;border-radius:14px;overflow:hidden;background:var(--night2);border:1px solid var(--line);transition:transform .25s,border-color .25s,box-shadow .25s}
+  .card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.3);box-shadow:0 14px 34px rgba(0,0,0,.4)}
+  .card:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+  .card .thumb{aspect-ratio:16/9;overflow:hidden;position:relative}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .card:hover .thumb img{transform:scale(1.05)}
+  .card .play{position:absolute;inset:auto 10px 10px auto;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.55);display:grid;place-items:center;opacity:0;transition:opacity .25s}
+  .card:hover .play{opacity:1}
+  .card .meta{padding:10px 14px 14px}
+  .card b{display:block;font-size:15px;line-height:1.5}
+  .card span{font-size:12.5px;color:var(--mute)}
+  .more{margin-top:28px;text-align:center}
+  .newlist{margin-top:30px;border-top:1px solid var(--line);padding-top:18px}
+  .newlist p{margin:0 0 6px;font-size:13px;letter-spacing:.3em;color:#ffd36b}
+  .newlist ul{list-style:none;margin:0;padding:0}
+  .newlist li{border-bottom:1px solid var(--line)}
+  .newlist a{display:flex;justify-content:space-between;gap:14px;padding:12px 4px;text-decoration:none}
+  .newlist a:hover b{color:#ffd36b} .newlist b{font-weight:700;transition:color .2s} .newlist span{color:var(--mute);font-size:14px;white-space:nowrap}
+  /* ---- dreams 区 (夜) ---- */
+  #dreams{background:radial-gradient(80% 60% at 80% 0%,rgba(155,140,255,.18),rgba(0,0,0,0)),linear-gradient(180deg,var(--night),#07061a);position:relative;overflow:hidden}
+  #dreams .grid{grid-template-columns:repeat(2,1fr);max-width:860px}
+  #dreams .card .badge{position:absolute;left:10px;top:10px;font-size:12px;font-weight:700;background:rgba(10,8,30,.75);border:1px solid rgba(255,255,255,.25);padding:2px 10px;border-radius:999px}
+  .quote{font-family:var(--serif);font-size:clamp(20px,2.4vw,28px);color:#e9e5ff;margin:0 0 30px}
+  /* ---- メンバー限定 ---- */
+  #members{background:radial-gradient(70% 60% at 15% 0%,rgba(255,200,90,.16),rgba(0,0,0,0)),linear-gradient(180deg,#07061a,#120a24);border-top:1px solid rgba(255,210,120,.18);border-bottom:1px solid rgba(255,210,120,.18)}
+  #members .eyebrow{color:#ffd36b}
+  .perks{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 34px;padding:0;list-style:none}
+  .perks li{border:1px solid rgba(255,210,120,.35);background:rgba(255,210,120,.07);border-radius:14px;padding:12px 18px;font-size:15px}
+  .perks li b{color:#ffd36b;margin-right:6px}
+  #members .grid{grid-template-columns:repeat(3,1fr)} #members .newlist{max-width:760px}
+  .card .mbadge{position:absolute;right:10px;top:10px;font-size:12px;font-weight:700;color:#2a1a00;background:linear-gradient(90deg,#ffe29a,#ffbf47);padding:3px 10px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+  .btn.gold{background:linear-gradient(90deg,#ffe29a,#ffbf47);color:#2a1a00;box-shadow:0 8px 24px rgba(255,190,70,.3)}
+  @media (max-width:860px){#members .grid{grid-template-columns:1fr}}
+  /* ---- 角色 ---- */
+  .uta{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
+  .uta .pic{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+  .uta .pic img{width:100%;height:auto}
+  .uta .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,10,31,.6),rgba(11,10,31,0) 40%)}
+  .name{font-family:var(--serif);font-size:clamp(40px,5vw,64px);font-weight:800;line-height:1.1;margin:.1em 0}
+  .name small{display:block;font-family:var(--sans);font-size:15px;letter-spacing:.3em;color:var(--pink);margin-top:10px;font-weight:700}
+  .prof{list-style:none;padding:0;margin:22px 0;border-top:1px solid var(--line)}
+  .prof li{display:grid;grid-template-columns:7em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .prof li span{color:var(--mute)}
+  .faces{margin-top:18px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  /* ---- 数字 ---- */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .stat{border:1px solid var(--line);border-radius:var(--r);padding:26px;background:rgba(255,255,255,.03)}
+  .stat b{display:block;font-size:clamp(30px,4vw,46px);font-weight:900;line-height:1.2;background:linear-gradient(90deg,#fff,#cfc8ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat span{color:var(--mute);font-size:14px}
+  .note{font-size:12px;color:var(--mute);margin-top:10px}
+  /* ---- 页尾 ---- */
+  footer{padding:70px 0 50px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+  footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+  footer nav{display:flex;gap:18px;flex-wrap:wrap}
+  footer a{text-decoration:none} footer a:hover{color:var(--ink)}
+  @media (max-width:860px){
+    .ch{padding:30px 22px 26px} .ch .spark,.ch .moon{width:34px;height:34px;top:16px;right:16px} .ch .tag{margin-right:40px}
+    .nav ul{display:none}
+    .twin,.uta{grid-template-columns:1fr} .grid{grid-template-columns:repeat(2,1fr)} #dreams .grid{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr} section{padding:80px 0}
+    .hero .wrap{grid-template-columns:1fr;padding:96px 0 70px!important} .hero .art{order:-1;max-width:420px}
+  }
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none} #stars{display:none} html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="nav">
+  <a class="logo" href="#top" aria-label="Hoshi AI Music トップ"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffd7a8" d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z"/></svg>Hoshi AI Music</a>
+  <ul><li><a href="#channels">チャンネル</a></li><li><a href="#works">作品</a></li><li><a href="#dreams">hoshi dreams</a></li><li><a href="#members">メンバー</a></li><li><a href="#uta">星野 詩</a></li></ul>
+</header>
 
-    <header class="top">
-      <a class="brand" href="/"><span class="brand-star">✦</span> Hoshi AI Music</a>
-      <nav class="top-nav" aria-label="Sections">
-        <a href="#covers">Covers</a>
-        <a href="#mixes">MIX</a>
-        <a href="#about">Hoshi</a>
-        <a href="#links">Links</a>
-      </nav>
-    </header>
+<main id="main">
+  <section class="hero" id="top" style="padding:0">
+    <canvas id="stars" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div>
+      <p class="kicker">HOSHI AI MUSIC ／ HOSHI DREAMS</p>
+      <h1>懐かしいアニソンを、<br /><em>新しい声</em>でもう一度。</h1>
+      <p class="lead">ガンダム、犬夜叉、アルドノア・ゼロ、デジモン……あの頃の名曲を AI カバー MV で。眠れない夜には、姉妹チャンネル「hoshi dreams」の睡眠 BGM を。</p>
+      <div class="cta">
+        <a class="btn red" href="https://www.youtube.com/@hoshiaimusic?sub_confirmation=1" target="_blank" rel="noopener">▶ チャンネル登録</a>
+        <a class="btn ghost" href="#dreams">🌙 hoshi dreams を見る</a>
+      </div>
+      </div>
+      <a class="art" href="https://www.youtube.com/@hoshiaimusic/search?query=%E6%99%82%E4%BB%A3%E3%82%92%E8%B6%8A%E3%81%88%E3%82%8B%E6%83%B3%E3%81%84" target="_blank" rel="noopener" style="display:block;text-decoration:none"><span class="now">いま一番聴かれている曲</span><img src="assets/img/hero_kikyo.jpg" alt="時代を越える想い ｜ 犬夜叉" fetchpriority="high" /><figcaption><b>時代を越える想い</b>犬夜叉 ・ ▶ YouTube で聴く</figcaption></a>
+    </div>
+    <span class="scroll">SCROLL</span>
+  </section>
 
-    <main id="main">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-rings" aria-hidden="true"></div>
-        <div class="hero-copy">
-          <p class="eyebrow">星 · Original Character Cover Project</p>
-          <h1 class="hero-title">Hoshi<br />AI Music</h1>
-          <p class="tagline">「懐かしいアニソンを、<wbr />新しい形でもう一度」</p>
-          <p class="tagline-en">Beloved anisong, heard once more in a new form.</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" data-latest href="https://www.youtube.com/@hoshiaimusic" target="_blank" rel="noopener noreferrer">▶ 最新MVを観る</a>
-            <a class="btn btn-ghost" href="https://www.youtube.com/@hoshiaimusic?sub_confirmation=1" target="_blank" rel="noopener noreferrer">チャンネル登録</a>
-          </div>
-        </div>
-        <figure class="hero-art">
-          <img src="/assets/img/hero.jpg" width="1400" height="787" alt="Hoshi — オレンジのジャケットで緑のベースを掲げる原創キャラクター" />
-        </figure>
-      </section>
+  <section id="channels">
+    <div class="wrap">
+      <p class="eyebrow reveal">CHANNELS</p>
+      <h2 class="reveal">ふたつの星、ふたつの時間。</h2>
+      <div class="twin">
+        <article class="ch main reveal">
+          <svg class="spark" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z"/></svg>
+          <span class="tag">AI Cover MV ・ 週6本更新</span>
+          <h3>Hoshi AI Music</h3>
+          <p>アニメ・ゲームの名曲を、新しいアレンジと映像でお届けするメインチャンネル。燃える OP から心に残る ED、作業用メドレーまで。</p>
+          <a class="btn red" href="https://www.youtube.com/@hoshiaimusic?sub_confirmation=1" target="_blank" rel="noopener">▶ 登録する</a>
+        </article>
+        <article class="ch dream reveal">
+          <span class="moon" aria-hidden="true"></span>
+          <span class="tag">Sleep ・ Study ・ Relax</span>
+          <h3>hoshi dreams</h3>
+          <p>soft anime sleep music for quiet nights。アニメの名曲を、やさしいピアノとオルゴールで。3時間の睡眠用・作業用 BGM。</p>
+          <a class="btn ghost" href="https://www.youtube.com/@hoshidreamsmusic?sub_confirmation=1" target="_blank" rel="noopener">🌙 登録する</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-      <!-- COVERS -->
-      <section class="block" id="covers">
-        <h2 class="h2"><span>Covers</span><small>最新カバー</small></h2>
-        <div class="cards" data-covers></div>
-      </section>
+  <section id="works">
+    <div class="wrap">
+      <p class="eyebrow reveal">LATEST WORKS</p>
+      <h2 class="reveal">最新のカバー MV</h2>
+      <p class="sub reveal">サムネイルをクリックすると YouTube で開きます。</p>
+      <div class="grid" id="works-grid"></div>
+      <div class="more reveal"><a class="btn ghost" href="https://www.youtube.com/@hoshiaimusic/videos" target="_blank" rel="noopener">すべての動画を見る →</a></div>
+    </div>
+  </section>
 
-      <!-- FEATURED -->
-      <section class="block" aria-labelledby="featured-h">
-        <h2 class="h2" id="featured-h"><span>Featured</span><small>特集</small></h2>
-        <a class="feature" href="https://youtu.be/hus3kAIj3Bw" target="_blank" rel="noopener noreferrer"
-           aria-label="[BLEACH] 10 Classic Opening &amp; Ending Songs Mix | Female AI Cover（YouTube で開く）">
-          <img src="/featured/bleach-mix.jpg" width="1280" height="720" alt="BLEACH 名曲MIX — 10 opening and ending songs" loading="lazy" />
-          <span class="feature-body">
-            <span class="tag">BLEACH MIX</span>
-            <span class="feature-title">[BLEACH] 10 Classic Opening &amp; Ending Songs Mix | Female AI Cover</span>
-            <span class="feature-go">YouTube ↗</span>
-          </span>
-        </a>
-      </section>
+  <section id="dreams">
+    <div class="wrap">
+      <p class="eyebrow reveal">SISTER CHANNEL</p>
+      <h2 class="reveal">hoshi dreams</h2>
+      <p class="quote reveal">眠れない夜に、あの頃のアニメの音を。</p>
+      <div class="grid" id="dreams-grid"></div>
+      <div class="more reveal" style="text-align:left"><a class="btn ghost" href="https://www.youtube.com/@hoshidreamsmusic/videos" target="_blank" rel="noopener">🌙 hoshi dreams の動画を見る →</a></div>
+    </div>
+  </section>
 
-      <!-- MIXES -->
-      <section class="block" id="mixes">
-        <h2 class="h2"><span>MIX</span><small>名曲MIX</small></h2>
-        <div class="cards cards-mix" data-mixes></div>
-      </section>
+  <section id="members">
+    <div class="wrap">
+      <p class="eyebrow reveal">MEMBERS ONLY</p>
+      <h2 class="reveal">メンバー限定</h2>
+      <p class="sub reveal">チャンネルメンバーになると、新作をひと足先に。一部の動画はメンバーだけが観られます。</p>
+      <ul class="perks reveal">
+        <li><b>先行公開</b>新しいカバー MV を一般公開より先に</li>
+        <li><b>限定動画</b>メンバーだけが観られる特別な MV</li>
+      </ul>
+      <div class="grid" id="members-grid"></div>
+      <div class="newlist reveal"><p>メンバー動画</p><ul id="new-list"></ul></div>
+      <div class="more reveal" style="text-align:left"><a class="btn gold" href="https://www.youtube.com/@hoshiaimusic/join" target="_blank" rel="noopener">★ メンバーになる</a></div>
+    </div>
+  </section>
 
-      <!-- ABOUT -->
-      <section class="block about" id="about">
-        <h2 class="h2"><span>Hoshi</span><small>キャラクター紹介</small></h2>
-        <div class="about-grid">
-          <img src="/assets/img/sheet.jpg" width="1400" height="933" alt="Hoshi 設定画 — 黒のボブヘア、オレンジのメッシュ、星のヘアピン、白いヘッドホン" loading="lazy" />
-          <div class="about-copy">
-            <p>黒いボブヘアに、左側だけ<strong>オレンジ</strong>のメッシュ。金色の星のヘアピンと、首にかけた白いヘッドホンがトレードマーク。</p>
-            <p>オレンジのスポーツジャケットに、ミントグリーンのベースを抱えて、懐かしい名曲を<strong>もう一度</strong>歌います。</p>
-            <ul class="chips">
-              <li>★ 星のヘアピン</li><li>🎧 白いヘッドホン</li><li>🎸 ミントのベース</li><li>🧡 オレンジのジャケット</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+  <section id="uta">
+    <div class="wrap uta">
+      <div class="pic reveal"><img src="assets/img/uta_stage.jpg" alt="月夜のステージで歌う星野 詩" loading="lazy" /></div>
+      <div class="reveal">
+        <p class="eyebrow">CHARACTER</p>
+        <p class="name">星野 詩<small>HOSHINO UTA ／ 新星</small></p>
+        <p style="color:#dcd8f5;margin:16px 0 0">Hoshi AI Music と hoshi dreams の看板シンガー。夜の街から、あの頃の名曲をもう一度届けます。</p>
+        <ul class="prof">
+          <li><span>名前</span>星野 詩(ほしの うた)</li>
+          <li><span>担当</span>メインボーカル・ナビゲーター</li>
+          <li><span>キャッチ</span>「新星」</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-      <!-- LINKS -->
-      <section class="block" id="links">
-        <h2 class="h2"><span>Links</span><small>視聴・聴取</small></h2>
-        <div class="link-groups" data-links></div>
-      </section>
-    </main>
+  <section id="stats" style="padding-top:20px">
+    <div class="wrap">
+      <p class="eyebrow reveal">NUMBERS</p>
+      <h2 class="reveal">いつも聴いてくれて、ありがとう。</h2>
+      <div class="stats">
+        <div class="stat reveal"><b data-count="12000">12,000+</b><span>チャンネル登録者</span></div>
+        <div class="stat reveal"><b data-count="1300000">1,300,000+</b><span>月間再生回数</span></div>
+        <div class="stat reveal"><b data-count="300">300+</b><span>公開カバー動画</span></div>
+      </div>
+      <p class="note">※ Hoshi AI Music の数値(2026年10月時点)</p>
+    </div>
+  </section>
+</main>
 
-    <footer class="foot">
-      <span>MMXXVI</span><span class="foot-star">✦</span><span>Hoshi AI Music</span>
-    </footer>
-  </body>
+<footer>
+  <div class="wrap row">
+    <a class="logo" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffd7a8" d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z"/></svg>Hoshi AI Music</a>
+    <nav aria-label="外部リンク">
+      <a href="https://www.youtube.com/@hoshiaimusic" target="_blank" rel="noopener">YouTube(Hoshi AI Music)</a>
+      <a href="https://www.youtube.com/@hoshidreamsmusic" target="_blank" rel="noopener">YouTube(hoshi dreams)</a>
+    </nav>
+    <span>© 2026 Hoshi AI Music</span>
+  </div>
+</footer>
+
+<script>
+  // 作品リスト (ここを書き換えれば更新できます)
+  const WORKS = [
+    ["w_shinjitsu.jpg", "真実の詩", "犬夜叉 ED5"],
+    ["w_aldnoah_mix.jpg", "アルドノア・ゼロ 名曲メドレー", "作業用 ・ 約1時間"],
+    ["w_heavenly.jpg", "heavenly blue", "ALDNOAH.ZERO OP1", "https://youtu.be/HKrxG4PLct8"],
+    ["w_nodiff.jpg", "No Differences", "ALDNOAH.ZERO"],
+    ["w_layers.jpg", "Layers", "Re:CREATORS"],
+    ["w_butterfly.jpg", "Butter-Fly", "デジモンアドベンチャー"],
+    ["w_ignite.jpg", "ignited -イグナイテッド-", "機動戦士ガンダムSEED DESTINY"],
+    ["w_overfly.jpg", "Overfly", "ソードアート・オンライン"],
+  ];
+  const DREAMS = [
+    ["d_inuyasha.jpg", "犬夜叉 睡眠用BGM", "3時間 ・ 作業用 ・ 勉強用"],
+    ["d_kikyo.jpg", "時代を越える想い", "犬夜叉 ・ 3時間"],
+  ];
+  const yt = (ch, q) => `https://www.youtube.com/@${ch}/search?query=${encodeURIComponent(q)}`;
+  const card = ([img, t, s, url], ch, badge) => `<a class="card reveal" href="${url || yt(ch, t)}" target="_blank" rel="noopener"><div class="thumb"><img src="assets/img/${img}" alt="${t}" loading="lazy" />${badge ? `<span class="badge">${badge}</span>` : ""}<span class="play" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#fff" d="M7 4l14 8-14 8z"/></svg></span></div><div class="meta"><b>${t}</b><span>${s}</span></div></a>`;
+  document.getElementById("works-grid").innerHTML = WORKS.map(w => card(w, "hoshiaimusic")).join("");
+  document.getElementById("dreams-grid").innerHTML = DREAMS.map(w => card(w, "hoshidreamsmusic")).join("");
+  // メンバー動画 (歌名だけ, &Z のカードの下) [曲名, 作品, リンク]
+  const NEW = [
+    ["空は高く風は歌う", "Fate/Zero ED", "https://youtu.be/ZVgnkKrn0IM"],
+    ["avid", "ALDNOAH.ZERO", "https://youtu.be/8mLi19U0QUU"],
+    ["heavenly blue", "ALDNOAH.ZERO OP", "https://youtu.be/HKrxG4PLct8"],
+  ];
+  document.getElementById("new-list").innerHTML = NEW.map(([t, w, u]) => `<li><a href="${u}" target="_blank" rel="noopener"><b>${t}</b><span>${w} ▶</span></a></li>`).join("");
+  // メンバー限定動画 [画像, 曲名, 説明, 種類("限定" or "先行"), リンク(なければ空)]
+  const MEMBERS = [
+    ["m_andz.jpg", "&Z", "ALDNOAH.ZERO ・ メンバー限定 MV", "限定", ""],
+  ];
+  document.getElementById("members-grid").innerHTML = MEMBERS.map(([img, t, s, kind, url]) => `<a class="card reveal" href="${url || "https://www.youtube.com/@hoshiaimusic/membership"}" target="_blank" rel="noopener"><div class="thumb"><img src="assets/img/${img}" alt="${t}" loading="lazy" /><span class="mbadge">${kind === "先行" ? "メンバー先行" : "メンバー限定"}</span></div><div class="meta"><b>${t}</b><span>${s}</span></div></a>`).join("");
+  // スクロールで浮かび上がる
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .15 });
+  document.querySelectorAll(".reveal").forEach((el, i) => { el.style.transitionDelay = (i % 4) * 80 + "ms"; io.observe(el); });
+  // 首屏の星 (きらきら + ときどき流れ星)
+  (() => { const c = document.getElementById("stars"), g = c.getContext("2d"); if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let W, H, S = []; const dpr = Math.min(2, devicePixelRatio || 1);
+    const resize = () => { W = c.clientWidth; H = c.clientHeight; c.width = W * dpr; c.height = H * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0); S = Array.from({ length: Math.round(W * H / 6000) }, () => ({ x: Math.random() * W, y: Math.random() * H * .75, r: Math.random() * 1.4 + .3, p: Math.random() * 6.3, s: .5 + Math.random() * 1.5 })); };
+    resize(); addEventListener("resize", resize); let shoot = null;
+    const tick = t => { g.clearRect(0, 0, W, H); const k = t / 1000;
+      for (const s of S) { const a = .35 + .65 * Math.pow(Math.sin(k * s.s + s.p) * .5 + .5, 3); g.fillStyle = `rgba(255,246,230,${a})`; g.beginPath(); g.arc(s.x, s.y, s.r, 0, 6.283); g.fill(); }
+      if (!shoot && Math.random() < .004) shoot = { x: Math.random() * W * .7 + W * .3, y: Math.random() * H * .3, t: k };
+      if (shoot) { const u = (k - shoot.t) / 1.1; if (u > 1) shoot = null; else { const x = shoot.x - u * 420, y = shoot.y + u * 160, gr = g.createLinearGradient(x, y, x + 120, y - 46); gr.addColorStop(0, `rgba(255,255,255,${1 - u})`); gr.addColorStop(1, "rgba(255,255,255,0)"); g.strokeStyle = gr; g.lineWidth = 1.6; g.beginPath(); g.moveTo(x, y); g.lineTo(x + 120, y - 46); g.stroke(); } }
+      requestAnimationFrame(tick); };
+    requestAnimationFrame(tick); })();
+</script>
+</body>
 </html>
